@@ -33,7 +33,6 @@
 #%                                  name>
 #%    -n [name]                     service_name
 #%                                  Name to assign to systemd services
-#%                                  and shell script
 #%                                  Defaults to name of directory
 #%    -x [pattern]                  exclude_patterns
 #%                                  Exclude pattern or colon-separated 
@@ -55,7 +54,7 @@
 #%    -s [cron schedule]            schedule
 #%                                  Schedule to run the backup service
 #%                                  in cron format
-#%                                  Defaults to "*-*-* 02:00:00" + 10
+#%                                  Defaults to "*-*-* 02:00:00" + 5
 #%                                  minutes for every running service
 #%    -u [command1:command2]        user_commands
 #%                                  Shell command or colon-separated
@@ -108,14 +107,13 @@
 #%                                  Add a backup service for a docker
 #%                                  data directory with defaults
 #%
-#%    ${script_name} -c ~/docker/pihole/dockerbackup_pihole.conf \
+#%    ${script_name} -f ~/docker/pihole/dockerbackup_pihole.conf \
 #%    add ~/docker/pihole/data           
 #%                                  Add a backup service for a docker
 #%                                  data directory using a config file
 #%
 #%    ${script_name} -o ~/backups -c pihole:cloudflared \
-#%    -u 'docker exec pihole bash -c "cd backups && pihole-FTL \
-#%    --teleporter' add ~/docker/pihole/data
+#%    -r 7 add ~/docker/pihole/data
 #%                                  Add a backup service for a docker
 #%                                  data directory, defining output 
 #%                                  directory, docker containers to
