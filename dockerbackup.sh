@@ -6,8 +6,8 @@
 #+    ${script_name} [-hvixz] [options] [command]
 #%
 #% DESCRIPTION
-#%    Shell script to create shell scripts and systemd services 
-#%    to regularly backup docker mount directories.
+#%    Shell script to create systemd services to regularly 
+#%    back up docker mount directories.
 #%
 #% COMMANDS
 #%
@@ -129,7 +129,7 @@
 #- IMPLEMENTATION
 #-    version         ${script_name} ${script_version}
 #-    author          nelisss
-#-    copyright       Copyright (c) nelisss 2025
+#-    copyright       Copyright (c) nelisss 2026
 #-    license         GNU General Public License v3
 #-
 #================================================================
