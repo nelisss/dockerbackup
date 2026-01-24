@@ -155,7 +155,6 @@ scriptinfo() { head -${script_headsize:-99} ${0} | grep -e "^#-" | sed -e "s/^#-
 
 # --- Other functions -----------------------------------------------
 echoverbose() { if [ "$1" = true ]; then echo "$2"; fi ; }
-stringcontain() { case $2 in *$1* ) return 0;; *) return 1;; esac ;}
 
 ## --- Options processing -------------------------------------------
 if [ $# = 0 ] ; then
