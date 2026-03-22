@@ -147,7 +147,7 @@ script_name="$(basename ${0})"
 program_name="${script_name%.*}"
 script_version="0.0.1"
 subject=${program_name}_qRPy2nF2
-start_env=$( ( set | sort ) )
+start_env=$( set -o posix; set | sort )
 
 usage() { printf "Usage: "; head -${script_headsize:-99} ${0} | grep -e "^#+" | sed -e "s/^#+[ ]*//g" -e "s/\${script_name}/${script_name}/g" ; }
 usagefull() { head -${script_headsize:-99} ${0} | grep -e "^#[%+-]" | sed -e "s/^#[%+-]//g" -e "s/\${script_name}/${script_name}/g" | sed -e "s/^#+[ ]*//g" -e "s/\${script_version}/${script_version}/g" ; }
@@ -270,7 +270,7 @@ if [ "$config_file" != "" ]; then
         exit 2
     else
         config_file=$( echo "$( pwd )/${config_file}" )
-        flag_env="`grep -vFe "$start_env" <<<"$( set | sort )" | grep -v ^current_env=`"; unset current_env;
+        flag_env="`grep -vFe "$start_env" <<<"$( set -o posix; set | sort )" | grep -v ^current_env=`"; unset current_env;
         # Source config file
         source "$config_file"
         # Reload flag inputs
